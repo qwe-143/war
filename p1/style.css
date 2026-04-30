@@ -1,0 +1,72 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar using FLEX */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Form using FLEX */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+input, button {
+  margin: 10px;
+  padding: 10px;
+  width: 250px;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* GRID for catalog */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Cart */
+.cart {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  input {
+    width: 90%;
+  }
+}

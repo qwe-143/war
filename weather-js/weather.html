@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h2>Weather Graph</h2>
+
+<input id="city" placeholder="Enter city">
+<button onclick="getWeather()">Get Weather</button>
+
+<canvas id="myChart"></canvas>
+
+<script>
+
+const API_KEY = "4ec1fe7a7d7b620c908b98d212e774da";
+
+// Arrow + async/await
+const getWeather = async () => {
+
+  let city = document.getElementById("city").value;
+
+  if(city === "") {
+    alert("Enter city");
+    return;
+  }
+
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`;
+
+  let res = await fetch(url);   // Promise
+  let data = await res.json();
+
+  if(!data.list){
+    alert("Invalid city/API error");
+    return;
+  }
+
+  // Callback using map
+  let temps = data.list.slice(0,5).map(item => item.main.temp);
+
+  let ctx = document.getElementById("myChart");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["1","2","3","4","5"],
+      datasets: [{
+        label: "Temperature",
+        data: temps,
+        borderColor: "blue"
+      }]
+    }
+  });
+
+};
+
+</script>
+
+</body>
+</html>
