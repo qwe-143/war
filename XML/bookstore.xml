@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE bookstore SYSTEM "bookstore.dtd">
+
+<bookstore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="bookstore.xsd">
+
+  <book>
+    <title>Java</title>
+    <author>James</author>
+    <price>500</price>
+  </book>
+
+  <book>
+    <title>Python</title>
+    <author>Guido</author>
+    <price>600</price>
+  </book>
+
+</bookstore>
